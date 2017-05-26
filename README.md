@@ -1,5 +1,7 @@
 # json-query-chain
 
+[![Build Status](https://travis-ci.org/sharpshark28/json-query-chain.svg?branch=master)](https://travis-ci.org/sharpshark28/json-query-chain)
+
 Chain queries onto POJOs to return precise results.
 
 ## Usage
