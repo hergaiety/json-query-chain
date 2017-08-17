@@ -4,7 +4,7 @@
   "description": "Chain queries onto POJOs to return precise results.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
