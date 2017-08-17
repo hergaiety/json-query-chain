@@ -10,6 +10,16 @@ module.exports = class Query {
     return this.data;
   };
 
+  filter (func) {
+    this.data = this.data.filter(func);
+    return this;
+  };
+
+  filterBy (key, func) {
+    this.data = this.data.filter(item => func(item[key]));
+    return this;
+  };
+
   search (key, term, score = 0) {
     switch (typeof term) {
       case 'boolean':

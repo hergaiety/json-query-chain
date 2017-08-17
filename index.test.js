@@ -66,6 +66,26 @@ test('should sort by string name', () => {
   expect(query[0].name).toBe('Dudley Conner');
 });
 
+test('should filter', () => {
+  let isAgeOver33 = a => a.age > 33;
+
+  let query = new Query(TestData)
+  .filter(isAgeOver33)
+  .results;
+
+  expect(query[0].name).toBe('Howard Buckley');
+});
+
+test('should filter by key', () => {
+  let isNumGT33 = num => num > 33;
+
+  let query = new Query(TestData)
+  .filterBy('age', isNumGT33)
+  .results;
+
+  expect(query[0].name).toBe('Howard Buckley');
+});
+
 test('should chain everything together', () => {
   let query = new Query(TestData)
   .search('isActive', true)
