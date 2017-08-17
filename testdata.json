@@ -3,6 +3,7 @@
     "_id": "5928038b69b33613f3577487",
     "isActive": true,
     "age": 20,
+    "netWorth": 54200.49,
     "name": "Haynes Meadows",
     "tags": [
       "et",
@@ -18,6 +19,7 @@
     "_id": "5928038ba2400e7e09550991",
     "isActive": false,
     "age": 22,
+    "netWorth": 11900,
     "name": "Katelyn Steele",
     "tags": [
       "cupidatat",
@@ -33,6 +35,7 @@
     "_id": "5928038bff4df5c29016be22",
     "isActive": false,
     "age": 29,
+    "netWorth": 0,
     "name": "Natalia Petty",
     "tags": [
       "nulla",
@@ -48,6 +51,7 @@
     "_id": "5928038b496f64e646cb8d69",
     "isActive": false,
     "age": 34,
+    "netWorth": -5000.2,
     "name": "Howard Buckley",
     "tags": [
       "qui",
@@ -63,6 +67,7 @@
     "_id": "5928038b4d214186ba1e7fa2",
     "isActive": false,
     "age": 22,
+    "netWorth": 401512.99,
     "name": "Jenkins Mosley",
     "tags": [
       "adipisicing",

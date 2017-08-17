@@ -48,6 +48,12 @@ Currently supports booleans and strings. (See [#1](https://github.com/sharpshark
 .sort('name')
 ```
 
+##### By Number
+
+```javascript
+.sort('netWorth')
+```
+
 #### Pagination
 
 Page 1 with 5 results per page.
