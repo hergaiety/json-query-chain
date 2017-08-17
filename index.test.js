@@ -58,6 +58,16 @@ test('should sort by boolean isActive', () => {
   expect(query[0].name).toBe('Katelyn Steele');
 });
 
+test('should sort by number netWorth', () => {
+  let query = new Query(TestData)
+  .sort('netWorth')
+  .results;
+
+  expect(query[0].name).toBe('Howard Buckley'); // Negative
+  expect(query[1].name).toBe('Natalia Petty'); // 0
+  expect(query[query.length - 1].name).toBe('Newman Mays'); // Richest
+});
+
 test('should sort by string name', () => {
   let query = new Query(TestData)
   .sort('name')

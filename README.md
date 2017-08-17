@@ -48,8 +48,6 @@ Simpler version of search using a custom function in the chain.
 
 #### Sort
 
-Currently supports booleans and strings. (See [#1](https://github.com/sharpshark28/json-query-chain/issues/2) for Integer Support)
-
 ##### By Boolean
 
 ```javascript
@@ -60,6 +58,12 @@ Currently supports booleans and strings. (See [#1](https://github.com/sharpshark
 
 ```javascript
 .sort('name')
+```
+
+##### By Number
+
+```javascript
+.sort('netWorth')
 ```
 
 #### Pagination
