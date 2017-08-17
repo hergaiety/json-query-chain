@@ -26,14 +26,12 @@ module.exports = class Query {
         this.data = this.data.filter(item => item[key] === term);
         break;
       case 'string':
-        if (term.length >= 3) {
-          this.data = this.data.filter(item => {
-            let regFind = new RegExp(term, 'gi');
-            let termMatches = (item[key].match(regFind) || []).length;
-            item.sortScore += termMatches;
-            return termMatches;
-          });
-        }
+        this.data = this.data.filter(item => {
+          let regFind = new RegExp(term, 'gi');
+          let termMatches = (item[key].match(regFind) || []).length;
+          item.sortScore += termMatches;
+          return termMatches;
+        });
         break;
     }
     return this;
