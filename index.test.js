@@ -1,109 +1,109 @@
-const Query = require('./index');
-const TestData = require('./testdata.json');
+const Query = require('./index')
+const TestData = require('./testdata.json')
 
 test('should not modify passed data without chain alterations', () => {
   let query = new Query(TestData)
-  .results;
+    .results
 
-  expect(query).toMatchObject(TestData);
-});
+  expect(query).toMatchObject(TestData)
+})
 
 test('should paginate with default params', () => {
   let query = new Query(TestData)
-  .paginate()
-  .results;
+    .paginate()
+    .results
 
-  expect(query.length).toBe(9);
-});
+  expect(query.length).toBe(9)
+})
 
 test('should paginate with custom page length', () => {
   let query = new Query(TestData)
-  .paginate(1, 3)
-  .results;
+    .paginate(1, 3)
+    .results
 
-  expect(query.length).toBe(3);
+  expect(query.length).toBe(3)
   expect(query[0].name).toBe('Haynes Meadows')
-});
+})
 
 test('should paginate to second page with custom page length', () => {
   let query = new Query(TestData)
-  .paginate(2, 3)
-  .results;
+    .paginate(2, 3)
+    .results
 
-  expect(query.length).toBe(3);
+  expect(query.length).toBe(3)
   expect(query[0].name).toBe('Howard Buckley')
-});
+})
 
 test('should search by boolean isActive', () => {
   let query = new Query(TestData)
-  .search('isActive', true)
-  .results;
+    .search('isActive', true)
+    .results
 
-  expect(query.length).toBe(4);
-});
+  expect(query.length).toBe(4)
+})
 
 test('should search by name', () => {
   let query = new Query(TestData)
-  .search('name', 'steele')
-  .results;
+    .search('name', 'steele')
+    .results
 
-  expect(query.length).toBe(2);
-});
+  expect(query.length).toBe(2)
+})
 
 test('should sort by boolean isActive', () => {
   let query = new Query(TestData)
-  .sort('isActive')
-  .results;
+    .sort('isActive')
+    .results
 
-  expect(query[0].name).toBe('Katelyn Steele');
-});
+  expect(query[0].name).toBe('Katelyn Steele')
+})
 
 test('should sort by number netWorth', () => {
   let query = new Query(TestData)
-  .sort('netWorth')
-  .results;
+    .sort('netWorth')
+    .results
 
-  expect(query[0].name).toBe('Howard Buckley'); // Negative
-  expect(query[1].name).toBe('Natalia Petty'); // 0
-  expect(query[query.length - 1].name).toBe('Newman Mays'); // Richest
-});
+  expect(query[0].name).toBe('Howard Buckley') // Negative
+  expect(query[1].name).toBe('Natalia Petty') // 0
+  expect(query[query.length - 1].name).toBe('Newman Mays') // Richest
+})
 
 test('should sort by string name', () => {
   let query = new Query(TestData)
-  .sort('name')
-  .results;
+    .sort('name')
+    .results
 
-  expect(query[0].name).toBe('Dudley Conner');
-});
+  expect(query[0].name).toBe('Dudley Conner')
+})
 
 test('should filter', () => {
-  let isAgeOver33 = a => a.age > 33;
+  let isAgeOver33 = a => a.age > 33
 
   let query = new Query(TestData)
-  .filter(isAgeOver33)
-  .results;
+    .filter(isAgeOver33)
+    .results
 
-  expect(query[0].name).toBe('Howard Buckley');
-});
+  expect(query[0].name).toBe('Howard Buckley')
+})
 
 test('should filter by key', () => {
-  let isNumGT33 = num => num > 33;
+  let isNumGT33 = num => num > 33
 
   let query = new Query(TestData)
-  .filterBy('age', isNumGT33)
-  .results;
+    .filterBy('age', isNumGT33)
+    .results
 
-  expect(query[0].name).toBe('Howard Buckley');
-});
+  expect(query[0].name).toBe('Howard Buckley')
+})
 
 test('should chain everything together', () => {
   let query = new Query(TestData)
-  .search('isActive', true)
-  .sort('name')
-  .paginate(1, 2)
-  .results;
+    .search('isActive', true)
+    .sort('name')
+    .paginate(1, 2)
+    .results
 
-  expect(query.length).toBe(2);
-  expect(query[0].name).toBe('Dudley Conner');
-  expect(query[query.length - 1].name).toBe('Haynes Meadows');
-});
+  expect(query.length).toBe(2)
+  expect(query[0].name).toBe('Dudley Conner')
+  expect(query[query.length - 1].name).toBe('Haynes Meadows')
+})

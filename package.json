@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage && npm run badge",
-    "badge": "lcov-badge coverage/lcov.info -o coverage.svg"
+    "badge": "lcov-badge coverage/lcov.info -o coverage.svg",
+    "lint": "eslint ./*.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,13 @@
   },
   "homepage": "https://github.com/sharpshark28/json-query-chain#readme",
   "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.12.2",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "jest": "^20.0.4",
     "lcov-badge": "^1.0.4"
   }
