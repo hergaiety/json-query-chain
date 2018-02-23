@@ -48,22 +48,26 @@ Simpler version of search using a custom function in the chain.
 
 #### Sort
 
+```
+.sort((a, b) => a > b)
+```
+
 ##### By Boolean
 
 ```javascript
-.sort('isActiveUser', true)
+.sortBy('isActiveUser')
 ```
 
 ##### By String
 
 ```javascript
-.sort('name')
+.sortBy('name')
 ```
 
 ##### By Number
 
 ```javascript
-.sort('netWorth')
+.sortBy('netWorth')
 ```
 
 #### Pagination

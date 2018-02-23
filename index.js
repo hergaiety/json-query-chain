@@ -1,9 +1,6 @@
 module.exports = class Query {
   constructor (data) {
-    this.data = data.map(item => {
-      item.sortScore = 0
-      return item
-    })
+    this.data = data
   }
 
   get results () {
@@ -16,33 +13,47 @@ module.exports = class Query {
   }
 
   filterBy (key, func) {
-    this.data = this.data.filter(item => func(item[key]))
+    if (this.data.length && typeof this.data[0] === 'object') {
+      this.data = this.data.filter(item => func(item[key]))
+    } else console.warn('Attempted to use filterBy with a flat array')
     return this
   }
 
-  search (key, term, score = 0) {
+  search (term, key) {
     switch (typeof term) {
       case 'boolean':
-        this.data = this.data.filter(item => item[key] === term)
+        if (this.data.length && typeof this.data[0] === 'object') {
+          this.data = this.data.filter(item => item[key] === term)
+        } else console.warn('Attempted to use search by boolean with a flat array')
         break
       case 'string':
-        this.data = this.data.filter(item => {
-          let regFind = new RegExp(term, 'gi')
-          let termMatches = (item[key].match(regFind) || []).length
-          item.sortScore += termMatches
-          return termMatches
-        })
+        let regFind = new RegExp(term, 'gi')
+        let getMatches = item => {
+          if (typeof item === 'string') {
+            return (item.match(regFind) || []).length
+          } else {
+            return (item[key].match(regFind) || []).length
+          }
+        }
+        this.data = [...this.data].sort(getMatches).filter(getMatches)
         break
     }
     return this
   }
 
-  sort (key = 'sortScore') {
-    this.data = this.data.sort((a, b) => {
-      if (a[key] < b[key]) return -1
-      if (a[key] > b[key]) return 1
-      return 0
-    })
+  sort (func) {
+    this.data = [...this.data].sort(func)
+    return this
+  }
+
+  sortBy (key) {
+    if (this.data.length && typeof this.data[0] === 'object') {
+      this.data = [...this.data].sort((a, b) => {
+        if (a[key] < b[key]) return -1
+        if (a[key] > b[key]) return 1
+        return 0
+      })
+    } else console.warn('Attempted to use sortBy with a flat array')
     return this
   }
 
