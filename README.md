@@ -1,6 +1,6 @@
 # json-query-chain
 
-[![Build Status](https://travis-ci.org/sharpshark28/json-query-chain.svg?branch=master)](https://travis-ci.org/sharpshark28/json-query-chain) [![npm version](https://badge.fury.io/js/json-query-chain.svg)](https://badge.fury.io/js/json-query-chain) [![Code Climate](https://img.shields.io/codeclimate/github/sharpshark28/json-query-chain.svg)](https://codeclimate.com/github/sharpshark28/json-query-chain) ![Code Coverage](coverage.svg)
+[![Build Status](https://travis-ci.org/sharpshark28/json-query-chain.svg?branch=master)](https://travis-ci.org/sharpshark28/json-query-chain) [![npm version](https://badge.fury.io/js/json-query-chain.svg)](https://badge.fury.io/js/json-query-chain) ![Code Coverage](coverage.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/4dc20d8b5e6a7334044d/maintainability)](https://codeclimate.com/github/sharpshark28/json-query-chain/maintainability)
 
 Chain queries onto POJOs to return precise results.
 
