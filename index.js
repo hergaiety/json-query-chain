@@ -53,7 +53,7 @@ module.exports = class Query {
         if (a[key] > b[key]) return 1
         return 0
       })
-    } else console.warn('Attempted to use sortBy with a flat array')
+    } else console.warn('Attempted to use sortBy with a flat array. Try .sort(func) instead.')
     return this
   }
 
